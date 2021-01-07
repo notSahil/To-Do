@@ -6,9 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
-
+// in two
 //import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -25,8 +26,8 @@ class MainActivity : AppCompatActivity() {
 
        // tool_barMain.title = "hhh"//
         setSupportActionBar(tool_barMain)
-      //  setupActionBarWithNavController(navController)  // to set action bar title as LABEL
-
+       setupActionBarWithNavController(navController)  // to set action bar title as LABEL
+//       setupActionBarWithNavController(findNavController(R.id.nav_host_fragment_container))
 
        // actionbar!!.title = "Main"
        // setSupportActionBar(tool_barMain)
@@ -34,7 +35,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-       // return  navController.navigateUp()|| super.onSupportNavigateUp()   // to go back fragment with <- toolbar view
-   return super.onSupportNavigateUp()
+       return  navController.navigateUp()|| super.onSupportNavigateUp()
+        // to go back fragment with <- toolbar view
+
+  // return super.onSupportNavigateUp()
     }
 }
