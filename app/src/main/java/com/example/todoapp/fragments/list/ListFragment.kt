@@ -2,12 +2,11 @@ package com.example.todoapp.fragments.list
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.*
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.todoapp.R
 import com.example.todoapp.data.models.ToDoData
 import com.example.todoapp.data.viewmodel.ToDoViewModel
@@ -17,8 +16,10 @@ import com.example.todoapp.fragments.list.adapter.ListAdapter
 import com.example.todoapp.utils.hideKeyboard
 import com.google.android.material.snackbar.Snackbar
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
+import kotlinx.android.synthetic.main.fragment_list.*
 
 class ListFragment : Fragment(), SearchView.OnQueryTextListener {
+
 
     private val mToDoViewModel: ToDoViewModel by viewModels()
     private val mSharedViewModel: SharedViewModel by viewModels()
@@ -27,6 +28,14 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     private val binding get() = _binding!!
 
     private val adapter: ListAdapter by lazy { ListAdapter() }
+    override fun onStart() {
+        super.onStart()
+        bottomNavigationView.background = null  // to make nav backggorund invisible
+
+
+    }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,8 +46,12 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         binding.lifecycleOwner = this
         binding.mSharedViewModel = mSharedViewModel
 
+
         // Setup RecyclerView
         setupRecyclerview()
+       // BottomNavigationView bottomAppBar = getActivity().findViewById(R.id.bottomAppBar)
+
+
 
         // Observe LiveData
         mToDoViewModel.getAllData.observe(viewLifecycleOwner, { data ->

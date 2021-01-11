@@ -1,45 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
+
+<!--    <data>-->
+<!--        <variable-->
+<!--            name="mSharedViewModel"-->
+<!--            type="com.example.todoapp.fragments.SharedViewModel" />-->
+<!--    </data>-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/listLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        tools:context=".fragments.list.ListFragment">-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerView"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:clipToPadding="false"-->
+<!--            android:paddingTop="8dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.0" />-->
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/floatingActionButton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="24dp"-->
+<!--            android:layout_marginBottom="24dp"-->
+<!--            android:clickable="true"-->
+<!--            android:focusable="true"-->
+<!--            android:navigateToAddFragment="@{true}"-->
+<!--            android:src="@drawable/ic_add"-->
+<!--            android:tint="@color/white"-->
+
+
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent" />-->
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/no_data_imageView"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"-->
+<!--            android:src="@drawable/ic_no_data"-->
+<!--            android:visibility="invisible"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/recyclerView"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/recyclerView"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/recyclerView"-->
+<!--            app:layout_constraintVertical_bias="0.37" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/no_data_textView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="12dp"-->
+<!--            android:alpha="0.5"-->
+<!--            android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"-->
+<!--            android:text="@string/no_data"-->
+<!--            android:textSize="16sp"-->
+<!--            android:visibility="invisible"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/recyclerView"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/no_data_imageView" />-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--</layout>-->
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="mSharedViewModel"
-            type="com.example.todoapp.fragments.SharedViewModel" />
+      <variable
+          name="mSharedViewModel"
+          type="com.example.todoapp.fragments.SharedViewModel" />
+
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/listLayout"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/ListLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragments.list.ListFragment">
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:clipToPadding="false"
             android:paddingTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_anchor="@+id/no_data_imageView"
+            app:layout_anchorGravity="center" />
+
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:backgroundTint="@color/colorPrimary"
+
+            app:fabCradleMargin="10dp"
+            app:fabCradleRoundedCornerRadius="10dp"
+            app:fabAlignmentMode="end"
+
+            app:fabCradleVerticalOffset="5dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#3f3f3f"
+
+
+
+
+                app:itemTextColor="@color/colorAccent"
+                app:itemIconTint="@color/colorAccent"
+                android:layout_marginEnd="44dp"
+                android:background="@android:color/transparent"
+
+                app:menu="@menu/bottom_nav_menu_list" />
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
             android:clickable="true"
+            android:backgroundTint="@color/colorPrimaryDark"
+
+
+            android:background="@color/colorPrimary"
             android:focusable="true"
+            app:backgroundTint="@color/colorPrimary"
             android:navigateToAddFragment="@{true}"
             android:src="@drawable/ic_add"
-            android:tint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_anchor="@id/bottomAppBar" />
 
         <ImageView
             android:id="@+id/no_data_imageView"
@@ -47,26 +159,28 @@
             android:layout_height="100dp"
             android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
             android:src="@drawable/ic_no_data"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/recyclerView"
-            app:layout_constraintTop_toTopOf="@+id/recyclerView"
-            app:layout_constraintVertical_bias="0.37" />
+            android:layout_gravity="center"
+            android:layout_above="@id/no_data_textView"
+            android:visibility="invisible" />
 
         <TextView
-            android:id="@+id/no_data_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:alpha="0.5"
-            android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
-            android:text="@string/no_data"
-            android:textSize="16sp"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/recyclerView"
-            app:layout_constraintTop_toBottomOf="@+id/no_data_imageView" />
+                    android:id="@+id/no_data_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:alpha="0.5"
+                    android:layout_above="@id/bottomAppBar"
+                    android:layout_marginBottom="-150dp"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_gravity="center"
+                    android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
+                    android:text="@string/no_data"
+                    android:textSize="16sp"
+                    android:visibility="invisible"
+                />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
+
+
