@@ -8,6 +8,8 @@
     tools:context=".fragments.add.AddFragment">
 
 
+
+
     <EditText
         android:id="@+id/title_et"
         android:layout_width="0dp"

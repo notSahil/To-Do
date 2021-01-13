@@ -2,6 +2,7 @@ package com.example.todoapp.fragments.add
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -18,6 +19,14 @@ class AddFragment : Fragment() {
 
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
+    override fun onStart() {
+        super.onStart()
+        (activity as AppCompatActivity).supportActionBar?.show()
+
+
+
+
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +37,7 @@ class AddFragment : Fragment() {
 
         // Set Menu
         setHasOptionsMenu(true)
+
 
         // Spinner Item Selected Listener
         binding.prioritiesSpinner.onItemSelectedListener = mSharedViewModel.listener
@@ -44,6 +54,7 @@ class AddFragment : Fragment() {
             insertDataToDb()
         }
         return super.onOptionsItemSelected(item)
+
     }
 
     private fun insertDataToDb() {

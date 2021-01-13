@@ -3,7 +3,7 @@
 
     <item android:id="@+id/miHome"
         android:title="Home"
-        
+
 
         android:icon="@drawable/ic_home" />
 
@@ -21,6 +21,7 @@
     <item android:id="@+id/miSettings"
         android:title="Settings"
         android:icon="@drawable/ic_home" />
+
 
     <item android:id="@+id/nothing"
         android:title=""/>

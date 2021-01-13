@@ -3,6 +3,7 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -17,9 +18,10 @@ import com.example.todoapp.utils.hideKeyboard
 import com.google.android.material.snackbar.Snackbar
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import kotlinx.android.synthetic.main.fragment_list.*
+import androidx.appcompat.app.ActionBar as ActionBar1
 
 class ListFragment : Fragment(), SearchView.OnQueryTextListener {
-
+    lateinit var  action : ActionBar1
 
     private val mToDoViewModel: ToDoViewModel by viewModels()
     private val mSharedViewModel: SharedViewModel by viewModels()
@@ -30,16 +32,36 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     private val adapter: ListAdapter by lazy { ListAdapter() }
     override fun onStart() {
         super.onStart()
-        bottomNavigationView.background = null  // to make nav backggorund invisible
-
+      bottomNavigationView.background = null  // to make nav backggorund invisible
+    //    (activity as AppCompatActivity).supportActionBar?.show()
+//        if(activity is AppCompatActivity){
+//            (activity as AppCompatActivity).setSupportActionBar(mtoolbar)
+//
+//        }
 
     }
 
 
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
+      //  val window : ListFragment = this@ListFragment
+       // window.setMenuVisibility(false)
+       // val toolbar: Toolbar =(R.id.toolbar) as Toolbar
+        if(activity is AppCompatActivity){
+            (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+
+        }
+
+    }
+
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View {
         // Data binding
         _binding = FragmentListBinding.inflate(inflater, container, false)
@@ -60,7 +82,15 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         })
 
         // Set Menu
-        setHasOptionsMenu(true)
+       //setHasOptionsMenu(true)
+//        var toolbar: Toolbar =
+
+        //set action bar in fragmeents.
+//        if(activity is AppCompatActivity){
+//            (activity as AppCompatActivity).setSupportActionBar()
+//        }
+//        (activity as AppCompatActivity).supportActionBar?.title = "Changedd"
+//        (activity as AppCompatActivity).supportActionBar?.hide()
 
         // Hide soft keyboard
         hideKeyboard(requireActivity())
@@ -97,8 +127,8 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private fun restoreDeletedData(view: View, deletedItem: ToDoData) {
         val snackBar = Snackbar.make(
-            view, "Deleted '${deletedItem.title}'",
-            Snackbar.LENGTH_LONG
+                view, "Deleted '${deletedItem.title}'",
+                Snackbar.LENGTH_LONG
         )
         snackBar.setAction("Undo") {
             mToDoViewModel.insertData(deletedItem)
@@ -107,7 +137,8 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.list_fragment_menu, menu)
+            inflater.inflate(R.menu.list_fragment_menu, menu)
+       // inflater.inflate(R.menu.bottom_nav_menu_list, menu)
 
         val search = menu.findItem(R.id.menu_search)
         val searchView = search.actionView as? SearchView
@@ -154,9 +185,9 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         builder.setPositiveButton("Yes") { _, _ ->
             mToDoViewModel.deleteAll()
             Toast.makeText(
-                requireContext(),
-                "Successfully Removed Everything!",
-                Toast.LENGTH_SHORT
+                    requireContext(),
+                    "Successfully Removed Everything!",
+                    Toast.LENGTH_SHORT
             ).show()
         }
         builder.setNegativeButton("No") { _, _ -> }
