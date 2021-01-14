@@ -41,20 +41,24 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.hide()
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
+       // setHasOptionsMenu(true)
 
       //  val window : ListFragment = this@ListFragment
        // window.setMenuVisibility(false)
        // val toolbar: Toolbar =(R.id.toolbar) as Toolbar
-        if(activity is AppCompatActivity){
-            (activity as AppCompatActivity).setSupportActionBar(toolbar)
-
-
-        }
+//        if(activity is AppCompatActivity){
+//            (activity as AppCompatActivity).setSupportActionBar(toolbar)
+    //}
+        (activity as AppCompatActivity).supportActionBar?.hide()
+     //   (parentFragment as AppCompatActivity).actionBar?.hide()
 
     }
 
@@ -67,6 +71,7 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         _binding = FragmentListBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.mSharedViewModel = mSharedViewModel
+
 
 
         // Setup RecyclerView

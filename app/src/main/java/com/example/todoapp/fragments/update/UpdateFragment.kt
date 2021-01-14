@@ -42,6 +42,7 @@ class UpdateFragment : Fragment() {
 
         // Set Menu
         setHasOptionsMenu(true)
+        (activity as AppCompatActivity).supportActionBar?.show()
 
         // Spinner Item Selected Listener
         binding.currentPrioritiesSpinner.onItemSelectedListener = mSharedViewModel.listener

@@ -26,8 +26,13 @@ class AddFragment : Fragment() {
 
 
 
+
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.show()
+    }
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -36,7 +41,13 @@ class AddFragment : Fragment() {
         _binding = FragmentAddBinding.inflate(layoutInflater, container, false)
 
         // Set Menu
+       // (activity as AppCompatActivity).action
         setHasOptionsMenu(true)
+        (activity as AppCompatActivity).supportActionBar?.show()
+
+
+
+
 
 
         // Spinner Item Selected Listener
@@ -85,3 +96,5 @@ class AddFragment : Fragment() {
         _binding = null
     }
 }
+
+
