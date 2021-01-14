@@ -1,72 +1,293 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="mSharedViewModel"
-            type="com.example.todoapp.fragments.SharedViewModel" />
+      <variable
+          name="mSharedViewModel"
+          type="com.example.todoapp.fragments.SharedViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/listLayout"
+        android:id="@+id/ListLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
+
         tools:context=".fragments.list.ListFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:clipToPadding="false"
-            android:paddingTop="8dp"
+<!--        <com.google.android.material.appbar.AppBarLayout-->
+<!--            android:id="@+id/appBarLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <androidx.appcompat.widget.Toolbar-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="?attr/actionBarSize"-->
+<!--                android:background="@color/colorAccent"-->
+<!--                app:layout_scrollFlags="scroll|enterAlways" />-->
+<!--        </com.google.android.material.appbar.AppBarLayout>-->
+
+<!--        <include-->
+<!--            android:id="@+id/include"-->
+<!--            layout="@layout/toolbar"-->
+<!--            tools:layout_editor_absoluteX="16dp" />-->
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+<!--            <com.google.android.material.appbar.AppBarLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:id="@+id/appbarLayout"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:elevation="0dp"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+
+<!--                app:layout_constraintBottom_toTopOf="@+id/recyclerView">-->
+
+            <com.google.android.material.appbar.AppBarLayout
+                app:elevation="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|enterAlways"
+
+                    >
+
+                    <include layout="@layout/toolbar" />
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                 />
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+
+
+
+
+            <!--            <com.google.android.material.appbar.AppBarLayout-->
+            <!--                android:id="@+id/appBarLayout"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:elevation="0dp"-->
+            <!--                app:layout_constraintBottom_toTopOf="@+id/recyclerView"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent">-->
+            <!--                -->
+
+            <!--            </com.google.android.material.appbar.AppBarLayout>-->
+
+
+            <!--            <androidx.appcompat.widget.Toolbar-->
+            <!--                android:id="@+id/toolbar"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:background="@color/colorPrimary"-->
+            <!--                app:layout_constraintBottom_toTopOf="@+id/recyclerView"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/recyclerView"-->
+            <!--                app:layout_scrollFlags="scroll|enterAlways">-->
+
+            <!--                <include layout="@layout/toolbar" />-->
+
+            <!--            </androidx.appcompat.widget.Toolbar>-->
+
+            <!--            <androidx.recyclerview.widget.RecyclerView-->
+            <!--                android:id="@+id/recyclerView"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+
+
+            <!--                android:background="@color/colorPrimary"-->
+            <!--                android:backgroundTint="@color/colorPrimary"-->
+            <!--                android:clipToPadding="false"-->
+            <!--                app:layout_anchor="@+id/no_data_imageView"-->
+            <!--                app:layout_anchorGravity="center"-->
+            <!--                app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintHorizontal_bias="1.0"-->
+            <!--                app:layout_constraintStart_toStartOf="parent" />-->
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/no_data_imageView"-->
+            <!--                android:layout_width="100dp"-->
+            <!--                android:layout_height="100dp"-->
+            <!--                android:layout_above="@id/no_data_textView"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:layout_marginTop="224dp"-->
+            <!--                android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"-->
+
+            <!--                android:src="@drawable/ic_no_data"-->
+            <!--                android:visibility="invisible"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintHorizontal_bias="0.498"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/no_data_textView"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+
+            <!--                android:layout_gravity="center"-->
+
+            <!--                android:layout_marginTop="48dp"-->
+            <!--                android:alpha="0.5"-->
+            <!--                android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"-->
+            <!--                android:text="@string/no_data"-->
+
+            <!--                android:textSize="16sp"-->
+            <!--                android:visibility="invisible"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintHorizontal_bias="0.498"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/no_data_imageView" />-->
+
+            <!--            <androidx.appcompat.widget.Toolbar-->
+            <!--                android:id="@+id/toolbar"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:background="@color/colorPrimary"-->
+            <!--                app:layout_scrollFlags="scroll|enterAlways"-->
+            <!--                tools:layout_editor_absoluteX="2dp"-->
+            <!--                tools:layout_editor_absoluteY="17dp">-->
+
+            <!--                <include layout="@layout/toolbar" />-->
+
+            <!--            </androidx.appcompat.widget.Toolbar>-->
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:navigateToAddFragment="@{true}"
-            android:src="@drawable/ic_add"
-            android:tint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
-        <ImageView
-            android:id="@+id/no_data_imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
-            android:src="@drawable/ic_no_data"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/recyclerView"
-            app:layout_constraintTop_toTopOf="@+id/recyclerView"
-            app:layout_constraintVertical_bias="0.37" />
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottomAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/white"
+                android:backgroundTint="@color/colorPrimary"
 
-        <TextView
-            android:id="@+id/no_data_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:alpha="0.5"
-            android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
-            android:text="@string/no_data"
-            android:textSize="16sp"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/recyclerView"
-            app:layout_constraintTop_toBottomOf="@+id/no_data_imageView" />
+                app:fabAlignmentMode="end"
+                app:fabCradleMargin="10dp"
+                app:fabCradleRoundedCornerRadius="10dp"
+
+                app:fabCradleVerticalOffset="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigationView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="44dp"
+                    android:background="@android:color/transparent"
+
+
+                    android:backgroundTint="#3f3f3f"
+                    app:itemIconTint="@color/colorAccent"
+                    app:itemRippleColor="@color/colorAccent"
+                    app:itemTextColor="@color/colorAccent"
+
+                    app:menu="@menu/bottom_nav_menu_list" />
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="38dp"
+                android:layout_marginBottom="26dp"
+
+
+                android:background="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:clickable="true"
+                android:focusable="true"
+                android:navigateToAddFragment="@{true}"
+                android:src="@drawable/ic_addd"
+                app:backgroundTint="@color/colorPrimary"
+                app:layout_anchor="@id/bottomAppBar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/no_data_imageView"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:layout_above="@id/no_data_textView"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginBottom="240dp"-->
+<!--            android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"-->
+<!--            android:src="@drawable/ic_no_data"-->
+<!--            android:visibility="invisible"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.498"-->
+<!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/no_data_textView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+
+<!--            android:layout_gravity="center"-->
+
+<!--            android:layout_marginBottom="200dp"-->
+<!--            android:alpha="0.5"-->
+<!--            android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"-->
+<!--            android:text="@string/no_data"-->
+<!--            android:textSize="16sp"-->
+<!--            android:visibility="invisible"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.498"-->
+<!--            app:layout_constraintStart_toStartOf="parent" />-->
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+
+

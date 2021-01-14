@@ -30,7 +30,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-<!--        android:text="@{args.currentItem.title}"-->
 
         <Spinner
             android:id="@+id/current_priorities_spinner"
@@ -41,16 +40,12 @@
             android:entries="@array/priorities"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-
-
             android:parsePriorityToInt="@{args.currentItem.priority}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/current_title_et"
+            app:layout_constraintTop_toBottomOf="@+id/current_title_et" />
 
-            />
-        <!--            android:parsePriorityToInt="@{args.currentItem.priority}"-->
         <EditText
             android:id="@+id/current_description_et"
             android:layout_width="0dp"
@@ -70,7 +65,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/current_priorities_spinner" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
