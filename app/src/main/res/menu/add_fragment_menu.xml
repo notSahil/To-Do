@@ -6,7 +6,7 @@
         android:id="@+id/menu_add"
         android:title="@string/add"
         android:icon="@drawable/ic_check"
-        android:iconTint="@color/white"
+        android:iconTint="@color/colorPrimary"
         app:showAsAction="ifRoom"/>
 
 

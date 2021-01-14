@@ -43,7 +43,15 @@ class AddFragment : Fragment() {
         // Set Menu
        // (activity as AppCompatActivity).action
         setHasOptionsMenu(true)
+
+
         (activity as AppCompatActivity).supportActionBar?.show()
+
+
+            // we can also show gradient background in action bar
+            // uncomment below line to see gradient background
+            //setBackgroundDrawable(gradientDrawable())
+
 
 
 

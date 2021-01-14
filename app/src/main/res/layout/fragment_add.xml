@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
+    android:theme="@style/AppTheme"
+
+    android:background="@color/colorPrimary"
 
 
 
@@ -15,7 +18,8 @@
         android:id="@+id/title_et"
         android:layout_width="0dp"
         android:layout_height="60dp"
-
+        android:textColor="@color/darkGray"
+        android:textColorHint="@color/lightGrayy"
         android:background="@android:color/transparent"
         android:ems="10"
         android:hint="@string/title"
@@ -48,6 +52,8 @@
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:ems="10"
+        android:textColor="@color/darkGray"
+        android:textColorHint="@color/lightGrayy"
         android:gravity="top|start"
         android:hint="@string/description"
         android:inputType="textMultiLine"
