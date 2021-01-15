@@ -23,8 +23,7 @@ class AddFragment : Fragment() {
         super.onStart()
         (activity as AppCompatActivity).supportActionBar?.show()
 
-
-
+        
 
 
     }
