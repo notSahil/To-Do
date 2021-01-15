@@ -24,13 +24,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/colorPrimary" />
+            app:tint="@color/white" />
 
         <EditText
             android:gravity="center|start"
             android:background="@android:color/transparent"
-            android:textColorHint="@color/colorPrimary"
-            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/hintColor"
+            android:textColor="@color/textColor"
             android:paddingStart="16dp"
             android:clickable="true"
             android:focusable="true"
