@@ -19,9 +19,9 @@
         android:title="Profile"
         android:icon="@drawable/ic_person" />
 
-    <item android:id="@+id/miSettings"
-        android:title="Settings"
-        android:icon="@drawable/ic_home" />
+    <item android:id="@+id/miNightMode"
+        android:title="Night Mode"
+        android:icon="@drawable/night_mode_icon" />
 
 
     <item android:id="@+id/nothing"

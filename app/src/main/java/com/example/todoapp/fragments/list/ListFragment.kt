@@ -60,6 +60,8 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         (activity as AppCompatActivity).supportActionBar?.hide()
      //   (parentFragment as AppCompatActivity).actionBar?.hide()
 
+        
+
     }
 
 
