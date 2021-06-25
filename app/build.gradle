@@ -8,6 +8,7 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
